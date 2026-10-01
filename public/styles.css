@@ -1,0 +1,91 @@
+:root{
+  --brand:#c0392b; --brand-dark:#962d22; --ink:#222; --muted:#777;
+  --line:#e3e3e3; --bg:#f4f5f7; --card:#fff;
+  --urgent:#d62828; --important:#e76f51; --normal:#2a9d8f;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+button{cursor:pointer;font:inherit}
+input,select,textarea{font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:6px;width:100%}
+textarea{min-height:90px;resize:vertical}
+label{font-size:12px;color:var(--muted);display:block;margin:8px 0 3px}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.row>*{flex:1;min-width:140px}
+.topbar{background:var(--brand);color:#fff;padding:10px 18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.topbar h1{font-size:18px;margin:0;white-space:nowrap}
+.tabs{display:flex;gap:4px}
+.tabs button{background:transparent;border:0;color:#ffd9d4;padding:6px 14px;border-radius:6px 6px 0 0}
+.tabs button.active{background:var(--bg);color:var(--brand-dark);font-weight:700}
+.spacer{flex:1}
+.wrap{max-width:1280px;margin:18px auto;padding:0 16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:16px}
+.card h2{margin:0 0 12px;font-size:16px}
+.btn{background:var(--brand);color:#fff;border:0;border-radius:6px;padding:7px 16px}
+.btn.ghost{background:#fff;color:var(--brand);border:1px solid var(--brand)}
+.btn.mini{padding:3px 10px;font-size:12px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;color:#fff}
+.pill.urgent{background:var(--urgent)} .pill.important{background:var(--important)} .pill.normal{background:var(--normal)}
+.tag{display:inline-block;background:#f0f0f0;border-radius:4px;padding:1px 8px;font-size:12px;margin:2px 4px 2px 0}
+.tag.renamed{background:#fff3cd;color:#8a6d3b}
+.muted{color:var(--muted);font-size:12px}
+.err{color:var(--urgent);font-size:13px;margin:8px 0;white-space:pre-wrap}
+.ok{color:var(--normal);font-size:13px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{border-bottom:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:600}
+
+/* ===== 排版台双预览 ===== */
+.stage{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+.stage .editor-pane{flex:2;min-width:320px}
+.stage .previews{flex:3;min-width:320px;display:flex;gap:24px;flex-wrap:wrap}
+.preview-col{flex:1;min-width:280px}
+.preview-col h3{font-size:13px;color:var(--muted);text-align:center;margin:0 0 8px}
+
+/* ---- 公告栏布局（现实中的布告栏）---- */
+.board{background:#e9e2d4;border:10px solid #7a5c3e;border-radius:6px;padding:16px;
+  background-image:repeating-linear-gradient(0deg,rgba(122,92,62,.05) 0 2px,transparent 2px 26px)}
+.board-note{background:#fffdf5;border:1px solid #d8c9a8;padding:14px;position:relative;box-shadow:0 2px 6px rgba(0,0,0,.15);margin-bottom:14px}
+.board-note:before,.board-note:after{content:"";position:absolute;top:-8px;width:60px;height:16px;background:rgba(214,40,40,.55);left:50%;transform:translateX(-50%);border-radius:2px}
+.board-note .bn-title{font-size:17px;font-weight:800;margin:6px 0}
+.board-note.urgent .bn-title{color:var(--urgent)}
+.board-meta{font-size:12px;color:#555;border-top:1px dashed #c9bfa6;border-bottom:1px dashed #c9bfa6;padding:6px 0;margin:6px 0}
+.board-meta b{color:#333}
+.board-body{font-size:13.5px;line-height:1.7;white-space:pre-wrap}
+.board-continue{margin-top:10px;padding-top:8px;border-top:2px solid var(--urgent);
+  background:#fff0f0;color:var(--urgent);font-weight:700;font-size:13px;text-align:center}
+.board-list .board-note:last-child{margin-bottom:0}
+
+/* ---- 手机布局 ---- */
+.phone{width:300px;margin:0 auto;border:10px solid #1a1a1a;border-radius:34px;background:#fff;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.phone .p-status{background:#1a1a1a;color:#fff;font-size:11px;display:flex;justify-content:space-between;padding:3px 14px}
+.phone .p-head{background:linear-gradient(135deg,var(--brand),var(--brand-dark));color:#fff;padding:10px 14px}
+.phone .p-head .t{font-weight:700;font-size:15px}
+/* 影响范围与开始结束时间：折叠时也不藏掉 */
+.phone .p-scope{background:#fff5f4;font-size:12px;padding:8px 14px;border-bottom:1px solid #f0d4d1}
+.phone .p-scope .line{display:flex;gap:6px;margin:2px 0}
+.phone .p-scope .k{color:var(--brand-dark);font-weight:700;white-space:nowrap}
+.phone .p-scope .v{flex:1}
+/* 长正文续页：正文区域内部滚动，紧急提示在滚动区之外保持可见 */
+.phone .p-page{height:260px;overflow-y:auto;padding:12px 14px;font-size:13.5px;line-height:1.75;white-space:pre-wrap}
+.phone .p-urgentbar{background:var(--urgent);color:#fff;font-weight:700;font-size:13px;text-align:center;padding:8px 10px;
+  display:flex;align-items:center;justify-content:center;gap:8px}
+.p-phone .p-urgentbar{position:sticky;bottom:0}
+.phone .p-pager{display:flex;justify-content:space-between;align-items:center;padding:6px 12px;border-top:1px solid var(--line);font-size:12px}
+.phone .p-pager button{border:1px solid var(--line);background:#fafafa;border-radius:4px;padding:2px 10px}
+.phone .p-contact{font-size:12px;color:#555;padding:8px 14px;border-top:1px solid var(--line);background:#fafafa}
+
+/* 分享页手机壳复用；公告详情时间线 */
+.timeline{list-style:none;padding:0;margin:0;font-size:13px}
+.timeline li{padding:6px 0 6px 18px;border-left:2px solid var(--line);position:relative}
+.timeline li:before{content:"";position:absolute;left:-5px;top:12px;width:8px;height:8px;border-radius:50%;background:var(--brand)}
+.timeline .when{color:var(--muted);font-size:11px}
+.confirm-box{border:1px dashed var(--important);background:#fff8f4;border-radius:8px;padding:10px;margin-top:8px}
+.withdraw-banner{background:#fdecea;border:1px solid #f5c6c0;color:#8a1c12;border-radius:8px;padding:12px;font-weight:700}
+.superseded-banner{background:#eef2ff;border:1px solid #c7d2fe;color:#3730a3;border-radius:8px;padding:12px}
+.kv{font-size:13px;margin:3px 0}.kv b{display:inline-block;min-width:86px;color:var(--muted)}
+.checks label{display:inline-flex;align-items:center;gap:4px;color:var(--ink);font-size:13px;margin:2px 10px 2px 0;width:auto}
+.checks input{width:auto}
+.late{color:var(--urgent);font-weight:700}
+.ontime{color:var(--normal)}
+.backlink{color:var(--brand);cursor:pointer;font-size:13px}

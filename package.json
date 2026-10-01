@@ -1,0 +1,14 @@
+{
+  "name": "community-notice-desk",
+  "version": "1.0.0",
+  "description": "社区公告排版台：公告栏/手机双布局预览，楼栋范围版本化、有效时段、紧急级别，发布/确认/替代链 SQL 存证",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "node tests/acceptance.test.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "sql.js": "^1.12.0"
+  }
+}
