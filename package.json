@@ -1,0 +1,10 @@
+{
+  "name": "community-bulletin-desk",
+  "version": "1.0.0",
+  "description": "社区公告排版台：公告栏/手机双布局预览、楼栋范围与时段版本化、紧急公告双人快照确认、撤回/替代链与证据留存",
+  "private": true,
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "node test/acceptance.test.js"
+  }
+}
